@@ -12,4 +12,6 @@ app.post('twilio',(req, res)=>{
     twiml.message('Gracias por enviarnos un mensaje');
     res.json('OK');
 });
+
 app.listen(process.env.PORT)
+console.log('Puerto = '+process.env.PORT)
