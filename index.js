@@ -8,8 +8,8 @@ const client = require('twilio')(accountSid, authToken);
 
 app.post('twilio',(req, res)=>{
     const twilio = new client.twiml.MessagingResponse();
-    console.log( req.body, twilio )
-    client.message('Gracias por enviarnos un mensaje');
+    console.log( "Holaaaaaaaaa", twilio.toString() )
+    twilio.message('Gracias por enviarnos un mensaje');
     res.json('OK');
 });
 
