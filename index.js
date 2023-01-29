@@ -8,13 +8,12 @@ const app = express();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilio = require('twilio')(accountSid, authToken);
-
+const response = new twilio.twiml.MessagingResponse();
 
 app.use( cors() );
 app.use( express.json() );
 
 app.post('/twilio',(req, res)=>{
-    const response = new twilio.MessagingResponse();
     console.log( "Holaaaaaaaaa", response.toString() )
     response.message('Gracias por enviarnos un mensaje');
     res.writeHead(200, {'Content-Type': 'text/xml'});
