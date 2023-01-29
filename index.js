@@ -1,5 +1,5 @@
 const express = require('express');
-require('dotenv')();
+require('dotenv').config();
 const app = express();
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
