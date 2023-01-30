@@ -28,8 +28,8 @@ app.post('/twilio',(req, res)=>{
     } else {
       // Text message
       const text = req.body.Body;
-      console.log(text,">>>>>>>>>>>>>>>>>")
-      twiml.message(`You said: ${text}`);
+      console.log(text,">>>>>>>>>>>>>>>>>",twiml.ToString(), req.body)
+      twiml.message(`You said: ${twiml.ToString()}`);
     }
   
     res.writeHead(200, { 'Content-Type': 'text/xml' });
