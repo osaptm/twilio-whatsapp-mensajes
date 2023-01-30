@@ -1,5 +1,7 @@
 
 const express = require('express');
+var xmlparser = require('express-xml-bodyparser');
+
 const cors = require('cors');
 require('dotenv').config();
 const app = express();
@@ -13,6 +15,8 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 app.use( cors() );
 app.use( express.json() );
+app.use( express.urlencoded({extended: false }) );
+app.use(xmlparser());
 
 app.post('/twilio',(req, res)=>{
 
@@ -28,8 +32,8 @@ app.post('/twilio',(req, res)=>{
     } else {
       // Text message
       const text = req.body.Body;
-      console.log(text,">>>>>>>>>>>>>>>>>",twiml, req.body)
-      twiml.message(`You said `+ JSON.stringify(twiml));
+      console.log(text,">>>>>>>>>>>>>>>>>",twiml.toString())
+      twiml.message(`You said `+ twiml.toString());
     }
   
     res.writeHead(200, { 'Content-Type': 'text/xml' });
