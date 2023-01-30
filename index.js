@@ -32,8 +32,8 @@ app.post('/twilio',(req, res)=>{
     } else {
       // Text message
       const text = req.body.Body;
-      console.log(text,">>>>>>>>>>>>>>>>>",twiml.toString())
-      twiml.message(`You said `+ twiml.toString());
+      console.log(text,">>>>>>>>>>>>>>>>>")
+      twiml.message(`Me has enviado :` + text);
     }
   
     res.writeHead(200, { 'Content-Type': 'text/xml' });
